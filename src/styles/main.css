@@ -114,11 +114,10 @@ body input[type="checkbox"] {
 .menu-cover {
   position: fixed;
   top: 0;
-  left: 25%;
+  left: 15%;
   height: 100%;
-  width: 80%;
+  width: 100%;
   background-color: #e70d44;
-  z-index: 1;
   opacity: 0;
   transition: 0.6s;
 }
@@ -130,6 +129,7 @@ body input[type="checkbox"] {
 
 .cube-container {
   position: relative;
+  z-index: 1;
   width: 50vh;
   height: 50vh;
   perspective-origin: 500px;
@@ -140,38 +140,95 @@ body input[type="checkbox"] {
   width: inherit;
   height: inherit;
   transform-style: preserve-3d;
-  transition: 2s;
+  transition: 2.5s;
 }
 
 .cube-side {
   position: absolute;
   width: inherit;
   height: inherit;
-  border: 2px solid #fff;
-  text-align: center;
-  color: #fff;
-  line-height: 50vh;
   backface-visibility: hidden;
 }
 
 .front {
-  background-color: red;
   transform: translateZ(25vh);
 }
 
 .back {
-  background: #000;
   transform: rotateY(180deg) translateZ(25vh);
 
 }
 
 .right {
-  background-color: green;
   transform: rotateY(90deg) translateZ(25vh);
 
 }
 
 .left {
-  background-color: pink;
   transform: rotateY(-90deg) translateZ(25vh);
+}
+
+.zindex {
+  z-index: -1;
+}
+
+.rotateY {
+  transform: rotateY(180deg);
+}
+
+.cube-side__img {
+  width: inherit;
+  height: inherit;
+  object-fit: cover;
+}
+
+.cube-side__video {
+  width: inherit;
+  height: inherit;
+  object-fit: cover;
+}
+
+@media (max-width: 1200px) {
+  .menu-toggle {
+    width: 120px;
+    height: 120px;
+  }
+
+  .lines {
+    right: calc(50% - 120px / 2);
+    top: calc(50% - 120px / 2);
+  }
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    width: 100px;
+    height: 100px;
+  }
+
+  .lines {
+    right: calc(50% - 100px / 2);
+    top: calc(50% - 100px / 2);
+  }
+
+  .menu-toggle::before {
+    display: none;
+  }
+
+  #menu-active:checked ~ .menu-cover {
+    transform: scaleX(1.25);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 360px) {
+  .menu-toggle {
+    width: 80px;
+    height: 80px;
+  }
+
+  .lines {
+    right: calc(50% - 80px / 2);
+    top: calc(50% - 80px / 2);
+  }
 }

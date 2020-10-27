@@ -1,11 +1,15 @@
 'use strict';
 
 const cube = document.querySelector('.cube');
+const cubeContainer = document.querySelector('.cube-container');
+const menuToggle = document.querySelector('.menu-toggle');
 
-const rotate = () => {
-  const rotateY = 180;
+menuToggle.addEventListener('click', () => {
+  cubeContainer.classList.toggle('zindex');
+});
 
-  cube.style.transform = `rotateY(${rotateY}deg)`;
+const rotateY = () => {
+  cube.classList.toggle('rotateY');
 };
 
-cube.addEventListener('click', rotate);
+cube.addEventListener('click', rotateY);
